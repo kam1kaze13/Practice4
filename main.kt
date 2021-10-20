@@ -1,3 +1,5 @@
+import java.util.Calendar
+
 data class Subject(
 	val title: String, val grade: Int
 )
@@ -5,7 +7,7 @@ data class Subject(
 data class Student(
     val name: String, val dateBirth: Int, val subject: List<Subject>
     ){
-    val age=2021-dateBirth
+    val age=Calendar.getInstance().get(Calendar.YEAR)-dateBirth
     val averageGrade: Float
     get() = subject.average{ it.grade.toFloat() }
 }
